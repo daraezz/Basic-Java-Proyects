@@ -14,7 +14,7 @@ public class CalculadoraApp {
 
         while (true) {
             // Mostramos el menu y controlamos las opciones
-            try { // Controlamos que el usuario introduzca valores numericosç
+            try { // Controlamos que el usuario introduzca valores numericos
                 operacion = mostrarMenu(consola); // Almacena la opcion que eliga el usuario
                 if (operacion >= 1 && operacion <= 5) {
                     // Inicializamos las variables que haran las operaciones
