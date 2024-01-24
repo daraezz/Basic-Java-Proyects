@@ -8,17 +8,18 @@ import java.util.Scanner;
 public class CalculadoraApp {
 
     public static void main(String[] args) {
+        Scanner consola = new Scanner(System.in);
         double operando1, operando2;
         int operacion;
 
         while (true) {
             // Mostramos el menu y controlamos las opciones
-            operacion = mostrarMenu(); // Almacena la opcion que eliga el usuario
-            try { // Controlamos que el usuario introduzca valores numericos
+            try { // Controlamos que el usuario introduzca valores numericosç
+                operacion = mostrarMenu(consola); // Almacena la opcion que eliga el usuario
                 if (operacion >= 1 && operacion <= 5) {
                     // Inicializamos las variables que haran las operaciones
-                    operando1 = pedirNumeroTeclado("Introduce el valor del primer operando: "); // Almacena el numero del primer operando
-                    operando2 = pedirNumeroTeclado("Introduce el valor del segundo operando: "); // Almacena el numero del segundo operando 
+                    operando1 = pedirNumeroTeclado("Introduce el valor del primer operando: ", consola); // Almacena el numero del primer operando
+                    operando2 = pedirNumeroTeclado("Introduce el valor del segundo operando: ", consola); // Almacena el numero del segundo operando 
 
                     System.out.println(""); // Salto linea
                     realizarOperaciones(operacion, operando1, operando2);
@@ -40,11 +41,8 @@ public class CalculadoraApp {
      *
      * @return Devuelve la opcion seleccionada
      */
-    private static int mostrarMenu() {
-        Scanner consola = new Scanner(System.in);
+    private static int mostrarMenu(Scanner consola) {
         int opcion = 0;
-        // Controlamos que el usuario introduzca valores numericos
-        try {
             System.out.println("*** APP CALCULADORA ***");
             System.out.println("""
                            1. Suma
@@ -56,10 +54,6 @@ public class CalculadoraApp {
                            """);
             System.out.print("Opcion a elegir: ");
             opcion = Integer.parseInt(consola.nextLine());
-
-        } catch (NumberFormatException ex) {
-            System.out.println("Introduce valores numericos");
-        }
         return opcion;
     }
 
@@ -69,8 +63,7 @@ public class CalculadoraApp {
      * @param mensaje Recibe un mensaje para los prints
      * @return Devuelve el numero insertado por consola
      */
-    private static double pedirNumeroTeclado(String mensaje) {
-        Scanner consola = new Scanner(System.in);
+    private static double pedirNumeroTeclado(String mensaje, Scanner consola) {
         System.out.print(mensaje);
         double numero = Double.parseDouble(consola.nextLine());
 
