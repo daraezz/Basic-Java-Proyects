@@ -65,9 +65,7 @@ public class CalculadoraApp {
      */
     private static double pedirNumeroTeclado(String mensaje, Scanner consola) {
         System.out.print(mensaje);
-        double numero = Double.parseDouble(consola.nextLine());
-
-        return numero;
+        return Double.parseDouble(consola.nextLine());
     }
 
     /**
